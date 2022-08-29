@@ -1,0 +1,80 @@
+let now = new Date();
+
+function setTime(){
+  let weekDays = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday"
+];
+let hours = now.getHours();
+let minutes = now.getMinutes();
+let day = weekDays[now.getDay()];
+let changeHours = document.querySelector("#hourWeather");
+changeHours.innerHTML = `${day} ${hours}:${minutes} `;
+}
+setTime();
+
+function changeEmoji(){
+let pmAm = document.querySelector("#emojiWeather");
+if (now.getHours > 0 && now.getHours < 12) {
+  pmAm.innerHTML = "a.m. ☀️";
+} else {
+  pmAm.innerHTML = "p.m. 🌑";
+}
+}
+changeEmoji();
+
+function city(event){
+  event.preventDefault();
+  let typeForm = document.querySelector("#typeCity");
+    let changeCity = document.querySelector("#changeCityName");
+  changeCity.innerHTML = `${typeForm.value}`;
+ 
+let apiKey = "556a821047e84576324b9a20ecb711e5";
+let units = "metric";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${typeCity.value}&appid=${apiKey}&units=${units}`;
+axios.get(apiUrl).then(weather);
+}
+
+  let currentPlace = document.querySelector("form");
+currentPlace.addEventListener("submit", city);
+
+function weather(response){
+  console.log(response.data);
+let degrees = document.querySelector("#convertation");
+let changeDegree = Math.round(response.data.main.temp);
+degrees.innerHTML = `${changeDegree}`;
+
+ let humidity = document.querySelector("#changeHum");
+let changeHumidity = Math.round(response.data.main.humidity);
+ humidity.innerHTML = `${changeHumidity}%`;
+
+ let wind = document.querySelector("#windSpeed");
+ let changeWind = Math.round(response.data.wind.speed);
+ wind.innerHTML = `${changeWind} mph`;
+
+ let nameCity = document.querySelector("#changeCityName");
+ let currentCity = response.data.name;
+ nameCity.innerHTML = currentCity;
+}
+
+function showPosition(position) {
+let lat = position.coords.latitude;
+let lon = position.coords.longitude;
+let apiKey = "556a821047e84576324b9a20ecb711e5";
+let units = "metric";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
+
+ axios.get(apiUrl).then(weather);
+}
+
+function currentPos(event){
+  event.preventDefault();
+navigator.geolocation.getCurrentPosition(showPosition);
+}
+let button = document.querySelector("button");
+button.addEventListener("click", currentPos);

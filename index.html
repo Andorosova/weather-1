@@ -1,0 +1,80 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="Css.css/Css.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="images/weather.jpg">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <div class="card main" aria-hidden="true">
+        <div class="container">
+            <div class="row align-items-start">
+                <div class="col">
+                    <form>
+                        <input id="typeCity" type="search" name="city" placeholder="Type city" autofocus="on"
+                            autocomplete="off">
+                        <input id="submitForm" type="submit" placeholder="Select" class="btn btn-info">
+
+                    </form>
+                    <button> Current location</button>
+                </div>
+            </div>
+        </div>
+
+        <h1 class="city" id="changeCityName"> City </h1>
+        <p><span id="hourWeather">22</span><span id="emojiWeather">pm ☀️</span></p>
+        <div class="card card1" aria-hidden="true">
+            <div class="temp"> <span id="convertation"> t</span><span id="celc">°</span>
+            </div>
+            <div class="humidity">Humidity <span id="changeHum"> </span> </div>
+            <div class="wind"> Wind:<span id="windSpeed"> </span> </div>
+        </div>
+
+        <div class="container days">
+            <div class="row align-items-start">
+                <div class="col-3">
+                    <span class="changecolor"> Monday</span>
+                    <div class="card card2" aria-hidden="true">
+                        <div class="emoji1"> 🌤️</div>
+                        <span class="temp1"> 22° </span>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <span class="changecolor"> Tuesday </span>
+                    <div class="card card2" aria-hidden="true">
+                        <div class="emoji2"> 🌤️</div>
+                        <span class="temp2"> 22° </span>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <span class="changecolor"> Wednesday </span>
+                    <div class="card card2" aria-hidden="true">
+                        <div class="emoji3">🌤️</div>
+                        <span class="temp3"> 22° </span>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <span class="changecolor">Thirsday</span>
+                    <div class="card card2" aria-hidden="true">
+                        <div class="emoji4"> 🌤️ </div>
+                        <span class="temp4"> 22° </span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script src="script/js"></script>
+</body>
+
+</html>
