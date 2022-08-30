@@ -1,4 +1,6 @@
-body{
+
+    
+    body{
     margin-top: 100px;
     margin-left: 450px;
     margin-right: 450px;
@@ -21,6 +23,7 @@ body{
     margin-left: 10px;
    
 }
+
 
 button{
      border-radius: 50px;
@@ -70,3 +73,9 @@ color: blanchedalmond;}
 .changecolor {
     color: blanchedalmond;
 }
+
+#gitHubLink{
+    padding-left: 50px;
+    padding-top: 0px;
+    margin-top: 0px;
+    text-decoration: none;}
