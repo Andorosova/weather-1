@@ -1,10 +1,12 @@
 
-    
-    body{
+    body {
+            background: linear-gradient(#111521,#243E5F,#72A7E1,#BCCDE0,#EDF2F8)
+
+    }
+    .allBody{
     margin-top: 100px;
     margin-left: 450px;
     margin-right: 450px;
-    background: linear-gradient(#111521,#243E5F,#72A7E1,#BCCDE0,#EDF2F8)
 }
 .container {
     display: block;
@@ -21,6 +23,7 @@
 }
 .btn-info{
     margin-left: 10px;
+    
    
 }
 
@@ -33,6 +36,8 @@ button{
     color: #BCCDE0;
     border-color: #111521;
 margin-left: 320px;
+position: relative;
+top: -56px;
 }
 
 
@@ -75,7 +80,5 @@ color: blanchedalmond;}
 }
 
 #gitHubLink{
-    padding-left: 50px;
-    padding-top: 0px;
-    margin-top: 0px;
+    text-align: center;
     text-decoration: none;}
