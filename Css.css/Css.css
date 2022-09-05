@@ -76,9 +76,14 @@ color: blanchedalmond;}
 }
 
 .changecolor {
-    color: blanchedalmond;
+    color: #080810;
 }
 
 #gitHubLink{
     text-align: center;
     text-decoration: none;}
+
+#weathIcon{
+    margin-left: 300px;
+    margin-top: -80px;
+}

@@ -59,6 +59,7 @@ cityKyiv();
 currentPlace.addEventListener("submit", city);
 
 function weather(response){
+  console.log(response);
 let degrees = document.querySelector("#convertation");
 let changeDegree = Math.round(response.data.main.temp);
 degrees.innerHTML = `${changeDegree}`;
@@ -74,6 +75,9 @@ let changeHumidity = Math.round(response.data.main.humidity);
  let nameCity = document.querySelector("#changeCityName");
  let currentCity = response.data.name;
  nameCity.innerHTML = currentCity;
+
+ let changeweatherIcon = document.querySelector("#weathIcon");
+ changeweatherIcon.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 }
 function showPosition(position) {
 let lat = position.coords.latitude;
@@ -84,6 +88,7 @@ let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${l
 
  axios.get(apiUrl).then(weather);
 }
+
 
 function currentPos(event){
   event.preventDefault();
