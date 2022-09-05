@@ -45,12 +45,20 @@ let units = "metric";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${typeCity.value}&appid=${apiKey}&units=${units}`;
 axios.get(apiUrl).then(weather);
 }
-
+function cityKyiv(){
+    let changeCity = document.querySelector("#changeCityName");
+    changeCity.innerHTML = "Kyiv";
+ 
+let apiKey = "556a821047e84576324b9a20ecb711e5";
+let units = "metric";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Kyiv&appid=${apiKey}&units=${units}`;
+axios.get(apiUrl).then(weather);
+}
+cityKyiv();
   let currentPlace = document.querySelector("form");
 currentPlace.addEventListener("submit", city);
 
 function weather(response){
-  console.log(response.data);
 let degrees = document.querySelector("#convertation");
 let changeDegree = Math.round(response.data.main.temp);
 degrees.innerHTML = `${changeDegree}`;
@@ -67,7 +75,6 @@ let changeHumidity = Math.round(response.data.main.humidity);
  let currentCity = response.data.name;
  nameCity.innerHTML = currentCity;
 }
-
 function showPosition(position) {
 let lat = position.coords.latitude;
 let lon = position.coords.longitude;
