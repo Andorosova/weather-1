@@ -87,3 +87,11 @@ color: blanchedalmond;}
     margin-left: 300px;
     margin-top: -80px;
 }
+.temp .active {
+    color: black;
+    cursor: default;
+    text-decoration: none
+}
+
+.temp .active:hover {
+    text-decoration: none;}

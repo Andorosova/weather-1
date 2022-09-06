@@ -59,10 +59,12 @@ cityKyiv();
 currentPlace.addEventListener("submit", city);
 
 function weather(response){
-  console.log(response);
+ 
 let degrees = document.querySelector("#convertation");
 let changeDegree = Math.round(response.data.main.temp);
 degrees.innerHTML = `${changeDegree}`;
+
+celcFar = response.data.main.temp;
 
  let humidity = document.querySelector("#changeHum");
 let changeHumidity = Math.round(response.data.main.humidity);
@@ -89,10 +91,35 @@ let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${l
  axios.get(apiUrl).then(weather);
 }
 
+function showCelcius(event){
+event.preventDefault();
+  celcium.classList.add("active");
+  farenheit.classList.remove("active");
+let changeQuality = document.querySelector("#convertation");
+changeQuality.innerHTML = Math.round(celcFar);
+}
+
+function showFarenheit(event){
+  event.preventDefault();
+  celcium.classList.remove("active");
+  farenheit.classList.add("active");
+  let changeQuality = document.querySelector("#convertation");
+let currentFar = (celcFar * 9) / 5 + 32;
+changeQuality.innerHTML = Math.round(currentFar);
+}
+
+let celcFar = null;
+
+let currentCelc = document.querySelector("#celcium");
+currentCelc.addEventListener("click", showCelcius);
+
+let currentFar = document.querySelector("#farenheit");
+currentFar.addEventListener("click", showFarenheit);
 
 function currentPos(event){
   event.preventDefault();
 navigator.geolocation.getCurrentPosition(showPosition);
 }
+
 let button = document.querySelector("button");
 button.addEventListener("click", currentPos);
