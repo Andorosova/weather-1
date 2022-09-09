@@ -24,6 +24,26 @@ changeHours.innerHTML = `${day} ${hours}:${minutes} `;
 }
 setTime();
 
+function forecast(){
+  let forecastRow = document.querySelector("#forecast");
+
+ let forecastHTML = `<div class="row">`;
+ let days = ["Fri","Sat","Sun","Mon"];
+ days.forEach(function(day) {
+  forecastHTML = forecastHTML + 
+  `
+  <div class="col-3">
+    <span class="changecolor"> ${day}</span>
+      <div class="emoji1"> 🌤️</div>
+     <span class="temp1"> 22° </span>
+    </div>
+
+  `
+ })
+forecastHTML = forecastHTML + `</div>`;
+forecastRow.innerHTML = forecastHTML;
+}
+
 function changeEmoji(){
 let pmAm = document.querySelector("#emojiWeather");
 if (now.getHours > 0 && now.getHours < 12) {
@@ -89,8 +109,10 @@ let units = "metric";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
 
  axios.get(apiUrl).then(weather);
-}
 
+
+}
+forecast();
 function showCelcius(event){
 event.preventDefault();
   celcium.classList.add("active");
