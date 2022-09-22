@@ -80,16 +80,19 @@ function formatDay(timestamp){
 }
 
 function city(event){
-  event.preventDefault();
+event.preventDefault();
   let typeForm = document.querySelector("#typeCity");
     let changeCity = document.querySelector("#changeCityName");
   changeCity.innerHTML = `${typeForm.value}`;
+
  
 let apiKey = "556a821047e84576324b9a20ecb711e5";
 let units = "metric";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${typeCity.value}&appid=${apiKey}&units=${units}`;
 axios.get(apiUrl).then(weather);
 }
+
+
 
 function cityKyiv(){
     let changeCity = document.querySelector("#changeCityName");
@@ -110,6 +113,8 @@ function weather(response){
 let degrees = document.querySelector("#convertation");
 let changeDegree = Math.round(response.data.main.temp);
 degrees.innerHTML = `${changeDegree}`;
+farenheit.classList.remove("active");
+celcium.classList.add("active");
 
 celcFar = response.data.main.temp;
 
@@ -142,6 +147,8 @@ let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${l
  axios.get(apiUrl).then(weather);
 
 }
+
+
 
 function showCelcius(event){
 event.preventDefault();
